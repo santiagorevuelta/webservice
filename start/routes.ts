@@ -21,5 +21,10 @@
 import Route from '@ioc:Adonis/Core/Route'
 
 Route.get('/', async () => {
-  return { env: process.env }
+  return { 
+    status: true,
+    msg: 'Webservice success',
+    app_name: process.env.APP_TITLE,
+    adonis_version: process.env.ADONIS_VERSION 
+  }
 })
