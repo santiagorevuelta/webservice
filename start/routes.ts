@@ -18,16 +18,24 @@
 |
 */
 
+/**
+ * 
+ * Revisar middleware app/Middleware/AuthKeyMiddleware, para la validación al webservice
+ * 
+ * 
+ */
+
 import Route from '@ioc:Adonis/Core/Route'
 import HealthCheck from '@ioc:Adonis/Core/HealthCheck'
 
-Route.get('/', async () => {
+Route.get('/', async ({ response }) => {
   return { 
     status: true,
     msg: 'Webservice success',
     app_name: process.env.APP_TITLE,
     adonis_version: process.env.ADONIS_VERSION 
   }
+  //response.redirect('/api/v1/')
 })
 
 
