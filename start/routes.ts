@@ -19,6 +19,7 @@
 */
 
 import Route from '@ioc:Adonis/Core/Route'
+import HealthCheck from '@ioc:Adonis/Core/HealthCheck'
 
 Route.get('/', async () => {
   return { 
@@ -28,3 +29,33 @@ Route.get('/', async () => {
     adonis_version: process.env.ADONIS_VERSION 
   }
 })
+
+
+//verifica conexión a la BD habilitar la healthCheck dentro del archivo config/database.ts
+Route.get('/health', async ({ response }) => {
+  const report = await HealthCheck.getReport()
+  
+  return report.healthy
+    ? response.ok(report)
+    : response.badRequest(report)
+})
+
+
+// Grouped
+Route.group(() => {
+
+  Route.get('/', async () => {
+    return { 
+      status: true,
+      msg: 'api v1',
+      app_name: process.env.APP_TITLE,
+      adonis_version: process.env.ADONIS_VERSION 
+    }
+  }).as('info')
+
+  //ruta para conexión demo
+  Route.get('/auth', 'AuthController.auth').as('auth')
+
+
+  
+}).prefix('/api/v1').as('api.v1')
