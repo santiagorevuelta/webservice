@@ -54,7 +54,7 @@ Route.group(() => {
   }).as('info')
 
   //ruta para conexión demo
-  Route.get('/auth', 'AuthController.auth').as('auth')
+  Route.post('/auth', 'AuthController.auth').as('auth')
 
 
   
