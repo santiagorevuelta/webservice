@@ -1,3 +1,10 @@
+### Available Scripts
+
+In the project directory, you can run:
+
+#### `npm install`
+To install the dependencies package.
+
 # Starting the Development Server
 
 You can start the development server by running the following ace command.
