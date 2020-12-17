@@ -52,7 +52,7 @@ export default class AuthKeyMiddleware {
     if(body.uid != ws_uid || body.hash_key != shasumkey){
         return response.status(200).json({
             status:false,
-            msg:'El uid o el hash_key no son validos.'
+            msg:'El uid o el hash_key no son válidos.'
         });
     }
 
