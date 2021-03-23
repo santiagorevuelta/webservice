@@ -28,7 +28,7 @@
 import Route from '@ioc:Adonis/Core/Route'
 import HealthCheck from '@ioc:Adonis/Core/HealthCheck'
 
-Route.get('/', async ({ response }) => {
+Route.get('/', async () => {
   return { 
     status: true,
     msg: 'Webservice success',

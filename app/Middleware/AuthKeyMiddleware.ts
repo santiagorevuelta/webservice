@@ -41,8 +41,8 @@ export default class AuthKeyMiddleware {
 
     const crypto = require('crypto');
     let shasum = crypto.createHash('sha512');
-    const ws_key = process.env.WS_KEY;
-    const ws_uid = process.env.WS_UID;
+    const ws_key = process.env.WS_KEY?process.env.WS_KEY:"";
+    const ws_uid = process.env.WS_UID?process.env.WS_UID:"";
     let key = ws_key+ws_uid;
 
     shasum.update(key);
